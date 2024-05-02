@@ -54,5 +54,29 @@ while(choice!=5):
         print("exit")
     print("want to exit then click on 5")
     choice=int(input())
-        
-        
+  output      
+     to do list
+enter no of tasks
+2
+enter the tasks
+teaching
+skipping
+1-add tasks to the list
+2-display the list
+3-mark the task completed
+4-delete the task
+5-exit
+1
+enter no of tasks you want to add
+2
+walking
+making
+want to exit then click on 5
+3
+1-add tasks to the list
+2-display the list
+3-mark the task completed
+4-delete the task
+5-exit
+
+=== Session Ended. Please Run the code again ===   
