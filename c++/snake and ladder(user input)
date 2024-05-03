@@ -1,0 +1,108 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool issnake(int x){
+    if(x==17||x==63||x==53||x==64||x==87||x==92||x==95||x==98)
+    return true;
+    else
+    return false;
+}
+bool isladder(int x){
+    if(x==2||x==4||x==9||x==21||x==28||x==51||x==72||x==80)
+    return true;
+    else
+    return false;
+}
+int snake(int x){
+    if(x==17)
+    x=7;
+    else if(x==53)
+    x=34;
+    else if(x==63)
+    x=18;
+    else if(x==64)
+    x=60;
+    else if(x==87)
+    x=36;
+    else if(x==92)
+    x=73;
+    else if(x==95)
+    x=75;
+    else if(x==98)
+    x=79;
+    return x;
+}
+int ladder(int x){
+    if(x==2)
+    x=38;
+    else if(x==4)
+    x=14;
+    else if(x==9)
+    x=31;
+    else if(x==21)
+    x=42;
+    else if(x==28)
+    x=84;
+    else if(x==51)
+    x=67;
+    else if(x==72)
+    x=91;
+    else if(x==80)
+    x=99;
+    return x;
+}
+
+int main() {
+    // Write C++ code here
+    string playernameone,playernametwo;
+    
+    cout<<"enter the player names\n";
+    cin>>playernameone>>playernametwo;
+    int playerone=1,playertwo=1,temp,ans;
+    while(playerone<=100&&playertwo<=100){
+       //temp=(rand()%6)+1;
+       cout<<"enter a value between 1-6 ";
+       cin>>temp;
+//cout<<"player1 "<<temp<<endl;
+if(temp>=1&&temp<=6){
+    playerone+=temp;
+    if(issnake(playerone)==true){
+        cout<<"oh no you were eaten by the snake\n";
+    playerone=snake(playerone);
+    }
+    else if(isladder(playerone)==true){
+        cout<<"congratulations you got a ladder\n";
+    playerone=ladder(playerone);
+    }
+  cout<<"player1 current score"<<playerone<<endl;
+}
+else{
+cout<<"you haven't entered between 1-6 so lost your chance\n";
+cout<<"next time enter cosciously\n";}
+    //temp=(rand()%6)+1;
+    cout<<"enter a value between 1-6 ";
+       cin>>temp;
+   // cout<<"player2 "<<temp<<endl;
+   if(temp<=6&&temp>=1){
+    playertwo+=temp;
+     if(issnake(playertwo)==true){
+          cout<<"oh no you were eaten by the snake\n";
+    playertwo=snake(playertwo);
+     }
+    else if(isladder(playertwo)==true){
+         cout<<"congratulations you got a ladder\n";
+    playertwo=ladder(playertwo);
+    }
+    
+    cout<<"player2 current score"<<playertwo<<endl; 
+   }
+   else{
+cout<<"you haven't entered between 1-6 so lost your chance\n";
+cout<<"next time enter cosciously\n";}
+    }
+    if(playerone>=100)
+    cout<<"winner is "<<playernameone<<endl;
+    else if(playertwo>=100)
+    cout<<"winner is "<<playernametwo<<endl;
+
+    return 0;
+}
