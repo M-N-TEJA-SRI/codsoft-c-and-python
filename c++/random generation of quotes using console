@@ -1,0 +1,26 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main(){
+srand(time(0));
+string quotes[]={"Time and tide wait for none","every moment is a fresh beginning","wear a smile and have friends,wear a scrowl and have wrinkles","never wanted perfect,just real","do what is right, not what is easy","life is a one time offer user it well","you deserve someone who are sure about you","each person should live their life as a model for others","The secret of success is to do the common thing uncommonly well","The way to get started is to quit talking and begin doing"};
+int index;
+index=rand()%10;
+cout<<"quote of the day is "<<endl;
+cout<<"--------------------------------------------------------------------"<<endl;
+cout<<quotes[index]<<endl;
+cout<<"--------------------------------------------------------------------"<<endl;
+cout<<"run the code again to get a new quote\n";
+cout<<"have a good day !\n";
+return 0;
+}
+output
+quote of the day is 
+--------------------------------------------------------------------
+each person should live their life as a model for others
+--------------------------------------------------------------------
+run the code again to get a new quote
+have a good day !
+
+
+=== Code Execution Successful ===
