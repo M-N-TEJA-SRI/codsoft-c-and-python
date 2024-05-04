@@ -1,3 +1,4 @@
+// Online C++ compiler to run C++ program online
 #include <bits/stdc++.h>
 using namespace std;
 bool issnake(int x){
@@ -57,13 +58,14 @@ int main() {
     
     cout<<"enter the player names\n";
     cin>>playernameone>>playernametwo;
-    int playerone=1,playertwo=1,temp,ans;
-    while(playerone<=100&&playertwo<=100){
-       //temp=(rand()%6)+1;
-       cout<<"enter a value between 1-6 ";
+    int playerone=1,playertwo=1,temp,ans, prevone=0,prevtwo=0,countone=0,counttwo=0;
+    while(playerone<=100&&playertwo<100){
+       
+       cout<<playernameone<<" enter a value between 1-6 ";
        cin>>temp;
-//cout<<"player1 "<<temp<<endl;
-if(temp>=1&&temp<=6){
+       if(prevone!=temp&&playerone+temp<=100&&(temp>=1&&temp<=6)){
+       prevone=temp;
+
     playerone+=temp;
     if(issnake(playerone)==true){
         cout<<"oh no you were eaten by the snake\n";
@@ -73,16 +75,37 @@ if(temp>=1&&temp<=6){
         cout<<"congratulations you got a ladder\n";
     playerone=ladder(playerone);
     }
-  cout<<"player1 current score"<<playerone<<endl;
+   
+  cout<<playernameone<<" current score"<<playerone<<endl;
 }
+
 else{
+    if(temp>6||temp<1){
 cout<<"you haven't entered between 1-6 so lost your chance\n";
-cout<<"next time enter cosciously\n";}
-    //temp=(rand()%6)+1;
-    cout<<"enter a value between 1-6 ";
+cout<<"next time enter consciously\n";
+}
+else if(prevone==temp){
+cout<<"entered same as prev num\n";
+cout<<"next time enter cosciously\n";
+}
+else if(playerone+temp>100){
+    if(countone<1){
+    cout<<"destination limit exceeded\n";
+    countone++;
+    }
+    else{
+    cout<<"you tried guessing for more than twice\n";
+        countone=999;
+        break;
+    }
+ 
+    }
+}
+ cout<<playernametwo<<" enter a value between 1-6 ";
        cin>>temp;
-   // cout<<"player2 "<<temp<<endl;
-   if(temp<=6&&temp>=1){
+       if(prevtwo!=temp&&playertwo+temp<=100&&(temp>=1&&temp<=6)){
+   prevtwo=temp;
+   
     playertwo+=temp;
      if(issnake(playertwo)==true){
           cout<<"oh no you were eaten by the snake\n";
@@ -93,16 +116,46 @@ cout<<"next time enter cosciously\n";}
     playertwo=ladder(playertwo);
     }
     
-    cout<<"player2 current score"<<playertwo<<endl; 
+    cout<<playernametwo<<" current score"<<playertwo<<endl; 
    }
    else{
+       if(temp<1||temp>6){
 cout<<"you haven't entered between 1-6 so lost your chance\n";
 cout<<"next time enter cosciously\n";}
+else if(prevtwo==temp){
+cout<<"entered same as prev num\n";
+cout<<"next time enter consciously\n";
+}
+else if(playertwo+temp>100){
+    if(counttwo<1){
+    cout<<"destination limit exceeded\n";
+    counttwo++;
     }
-    if(playerone>=100)
+    else{
+    cout<<"you tried guessing for more than twice\n";
+        counttwo=999;
+        break;
+    }
+ 
+    }
+    }
+    if(playerone==100){
     cout<<"winner is "<<playernameone<<endl;
-    else if(playertwo>=100)
+  break;
+    }
+    else if(playertwo==100){
     cout<<"winner is "<<playernametwo<<endl;
-
+   break;
+}
+else if((playerone!=100&&counttwo==999)||(playertwo!=100&&countone==999))
+{
+cout<<"none of them is a winner \n";
+ break;
+}
+else if(playerone==100&&playertwo==100){
+cout<<playernameone<<" and "<<playernametwo<<" are winners\n";
+ break;
+}
+}
     return 0;
 }
