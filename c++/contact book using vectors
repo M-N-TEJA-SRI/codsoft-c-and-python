@@ -1,0 +1,189 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+    int choice,flag=0,index;
+    vector<string>names{"police","fire","ambulance"},ph{"100","101","108"},email{"null","null","null"},addr{"null","null","null"};
+    string ipname,ipph,ipemail,ipaddr;
+    int n=3,size,i,temp;
+    while(choice!=6){
+    cout<<"hello\n";
+    cout<<"welcome to contact book\n";
+    cout<<"1-add\n2-view\n3-update\n4-search\n5-delete\n6-exit\n";
+    cout<<"enter your choice\n";
+    cin>>choice;
+    if(choice==6)
+    {
+        cout<<"exit\n";
+        break;
+    }
+    else if(choice==1){
+        cout<<"enter number of contacts you want to add\n";
+        cin>>size;
+    cin.ignore();
+    temp=names.size();
+        for(i=names.size();i<size+temp;i++){
+            cout<<"enter name,ph,email,addr\n";
+            cin>>ipname>>ipph>>ipemail>>ipaddr;
+            cin.ignore();
+            
+            names.push_back(ipname);
+            ph.push_back(ipph);
+            email.push_back(ipemail);
+            addr.push_back(ipaddr);
+            cout<<"added to the contact list\n";
+        }
+        cout<<"--------------------------------"<<endl;
+        for(i=0;i<names.size();i++){
+           
+            cout<<names[i]<<" "<<ph[i]<<endl;
+        }
+          cout<<"--------------------------------"<<endl;
+    }
+    else if(choice==2){
+          cout<<"--------------------------------"<<endl;
+        for(i=0;i<names.size();i++){
+           
+            cout<<names[i]<<" "<<ph[i]<<endl;
+        }
+          cout<<"--------------------------------"<<endl;
+    }
+    else if(choice==3){
+        cout<<"enter the name to be updated\n";
+        cin>>ipname;
+        for(i=0;i<names.size();i++){
+            if(names[i]==ipname){
+                flag=1;
+                index=i;
+                break;
+            }
+        }
+        if(flag==0)
+        cout<<"name is not available in the list\n";
+        else if(flag==1){
+            cout<<"enter new ph,email,addr\n";
+            cin>>ipph>>ipemail>>ipaddr;
+            ph[index]=ipph;
+            email[index]=ipemail;
+            addr[index]=ipaddr;
+            cout<<"contact updated\n";
+            cout<<names[index]<<" "<<ph[index]<<" "<<email[index]<<" "<<addr[index]<<endl;
+        }
+    }
+    else if(choice==4){
+        cout<<"enter the name to be searched\n";
+        cin>>ipname;
+        for(i=0;i<names.size();i++){
+            if(names[i]==ipname){
+                flag=1;
+                index=i;
+                break;
+            }
+        }
+        if(flag==0)
+        cout<<"name is not available in the list\n";
+        else if(flag==1){
+            cout<<names[index]<<" "<<ph[index]<<endl;
+        }
+    }
+    else if(choice==5){
+     cout<<"enter the name to be deleted\n";
+        cin>>ipname;
+        for(i=0;i<names.size();i++){
+            if(names[i]==ipname){
+                flag=1;
+                index=i;
+                break;
+            }
+        }
+        if(flag==0)
+        cout<<"name is not available in the list to delete\n";
+        else if(flag==1){
+            names.erase(names.begin()+index);
+            ph.erase(ph.begin()+index);
+            email.erase(email.begin()+index);
+            addr.erase(addr.begin()+index);
+            cout<<"deleted\n";
+            cout<<"The contacts left in the list are "<<endl;
+              cout<<"--------------------------------"<<endl;
+            for(i=0;i<names.size();i++){
+           
+            cout<<names[i]<<" "<<ph[i]<<endl;
+        }
+          cout<<"--------------------------------"<<endl;
+        }
+    }
+    
+    }
+
+    return 0;
+}
+output
+/tmp/jc7iMsbzos.o
+hello
+welcome to contact book
+1-add
+2-view
+3-update
+4-search
+5-delete
+6-exit
+enter your choice
+1
+enter number of contacts you want to add
+1
+enter name,ph,email,addr
+teja 000 teja@ vsp
+added to the contact list
+--------------------------------
+police 100
+fire 101
+ambulance 108
+teja 000
+--------------------------------
+hello
+welcome to contact book
+1-add
+2-view
+3-update
+4-search
+5-delete
+6-exit
+enter your choice
+2
+--------------------------------
+police 100
+fire 101
+ambulance 108
+teja 000
+--------------------------------
+hello
+welcome to contact book
+1-add
+2-view
+3-update
+4-search
+5-delete
+6-exit
+enter your choice
+3
+enter the name to be updated
+police
+enter new ph,email,addr
+111 tpr iels
+contact updated
+police 111 tpr iels
+hello
+welcome to contact book
+1-add
+2-view
+3-update
+4-search
+5-delete
+6-exit
+enter your choice
+6
+exit
+
+
+=== Code Execution Successful ===
