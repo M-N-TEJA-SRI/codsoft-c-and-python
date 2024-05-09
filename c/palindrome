@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    int choice=1,i,n,flag=1;
+   char s[100];
+   
+    printf("welcome to palindrome checker\n");
+    while(choice==1){
+        if(choice!=1){
+            printf("exit\n");
+            break;
+        }
+        else if(choice==1){
+            printf("enter the  string to be checked\n");
+scanf("%s",s);
+n=strlen(s);
+for(i=0;i<strlen(s);i++){
+    if(s[i]!=s[n-i-1]){
+        flag=0;
+        break;
+    }
+}
+if(flag==1)
+printf("the string is a palindrome\n");
+else if(flag==0)
+printf("the string is not a palindrome\n");
+printf("want to check other strings too then click on 1");
+scanf("%d",&choice);        }
+    }
+    
+}
+output
+welcome to palindrome checker
+enter the  string to be checked
+atta
+the string is a palindrome
+want to check other strings too then click on 11
+enter the  string to be checked
+teja
+the string is not a palindrome
+want to check other strings too then click on 1
