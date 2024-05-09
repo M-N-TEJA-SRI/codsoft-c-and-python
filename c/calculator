@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+   float a,b;
+   int choice;
+   printf("calculator\n");
+   do{
+  
+   printf("1-addition\n2-subtraction\n3-multiplication\n4-division\n5-remainder\n6-exit\n");
+   printf("enter the choice\n");
+   scanf("%d",&choice);
+   if(choice!=6){
+        printf("enter two values\n");
+   scanf("%f %f",&a,&b);
+   }
+   else if(choice==6)
+   {
+      printf("exit\n");
+      break;
+   }
+   switch(choice){
+       case 1:
+       printf("%0.2f\n",a+b);
+       break;
+       case 2:
+       printf("%0.2f\n",a-b);
+       break;
+       case 3:
+       printf("%0.2f\n",a*b);
+       break;
+       case 4:
+       printf("%0.2f\n",a/b);
+       break;
+       case 5:
+       if((int)a==a&&(int)b==b){
+           printf("%d\n",(int)a%(int)b);
+       }
+       else{
+       printf("remainder not possible for float numbers\n");
+       }
+       break;
+   }
+}while(choice!=6);
+    return 0;
+}
+output
+calculator
+1-addition
+2-subtraction
+3-multiplication
+4-division
+5-remainder
+6-exit
+enter the choice
+1
+enter two values
+6 7
+13.00
+1-addition
+2-subtraction
+3-multiplication
+4-division
+5-remainder
+6-exit
+enter the choice
