@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Write C code here
+   int choice=1;
+   float c,f;
+   do{
+       cout<<"1-celsius to fahrenheit\n2-fahrenheit to celsius\n3-exit\n";
+      cout<<"enter choice\n";
+     cin>>choice;
+       if(choice==3)
+       {
+           cout<<"exit\n";
+           break;
+       }
+       else if(choice==2){
+           cout<<"celsius to fahrenheit\n";
+           cout<<"enter temperature in celsius\n";
+           cin>>c;;
+           f=((9*c)+160)/5;
+           cout<<f<<endl;
+           
+       }
+       else if(choice==1){
+            cout<<"fahrenheit to celsius\n";
+           cout<<"enter temperature in fahrenheit\n";
+           cin>>f;
+           c=((5*f)-160)/9;
+           cout<<c<<endl;
+       }
+      
+   }while(choice!=3);
+
+    return 0;
+}
+output
+1-celsius to fahrenheit
+2-fahrenheit to celsius
+3-exit
+enter choice
+2
+celsius to fahrenheit
+enter temperature in celsius
+0
+32
+1-celsius to fahrenheit
+2-fahrenheit to celsius
+3-exit
+enter choice
