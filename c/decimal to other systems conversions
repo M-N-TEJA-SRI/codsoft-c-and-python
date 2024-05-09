@@ -1,0 +1,88 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    long long int choice=1,num,rem,i;
+  string s,t;
+    do{
+          s="";
+          t="";
+        cout<<"1-deci to binary\n2-deci to octal\n3-deci to hex\n4-exit\n";
+        cout<<"enter your choice\n";
+        cin>>choice;
+        if(choice==4){
+            cout<<"exit\n";
+            break;
+        }
+        else if(choice==1){
+            cout<<"enter value to be converted\n";
+            cin>>num;
+            while(num){
+                rem=num%2;
+                s+=to_string(rem);
+                num/=2;
+            }
+           for(i=s.length()-1;i>=0;i--){
+               t+=s[i];
+           }
+           cout<<t<<endl;
+        }
+        else if(choice==2){
+            cout<<"enter value to be converted\n";
+            cin>>num;
+            while(num){
+                rem=num%8;
+                s+=to_string(rem);
+                num/=8;
+            }
+           for(i=s.length()-1;i>=0;i--){
+               t+=s[i];
+           }
+           cout<<t<<endl;
+        }
+        else if(choice==3){
+            cout<<"enter value to be converted\n";
+            cin>>num;
+            while(num){
+                rem=num%16;
+                if(rem>=0&&rem<=9)
+                s+=to_string(rem);
+                else if(rem>9){
+                    if(rem==10)
+                    s+='A';
+                    else if(rem==11)
+                    s+='B';
+                    else if(rem==12)
+                    s+='C';
+                    else if(rem==13)
+                    s+='D';
+                    else if(rem==14)
+                    s+='E';
+                    else if(rem==15)
+                    s+='F';
+                }
+                num/=16;
+            }
+           for(i=s.length()-1;i>=0;i--){
+               t+=s[i];
+           }
+           cout<<t<<endl;
+        }
+    }
+    while(choice!=4);
+}
+output
+  1-deci to binary
+2-deci to octal
+3-deci to hex
+4-exit
+enter your choice
+3
+enter value to be converted
+16
+10
+1-deci to binary
+2-deci to octal
+3-deci to hex
+4-exit
+enter your choice
