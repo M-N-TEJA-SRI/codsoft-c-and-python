@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+   int choice=1;
+   float c,f;
+   do{
+       printf("1-celsius to fahrenheit\n2-fahrenheit to celsius\n3-exit\n");
+      printf("enter choice\n");
+      scanf("%d",&choice);
+       if(choice==3)
+       {
+           printf("exit\n");
+           break;
+       }
+       else if(choice==2){
+           printf("celsius to fahrenheit\n");
+           printf("enter temperature in celsius\n");
+           scanf("%f",&c);
+           f=((9*c)+160)/5;
+           printf("%f\n",f);
+           
+       }
+       else if(choice==1){
+            printf("fahrenheit to celsius\n");
+           printf("enter temperature in fahrenheit\n");
+           scanf("%f",&f);
+           c=((5*f)-160)/9;
+           printf("%f\n",c);
+       }
+      
+   }while(choice!=3);
+
+    return 0;
+}
+output
+1-celsius to fahrenheit
+2-fahrenheit to celsius
+3-exit
+enter choice
+1
+fahrenheit to celsius
+enter temperature in fahrenheit
+0
+-17.777779
+1-celsius to fahrenheit
+2-fahrenheit to celsius
+3-exit
+enter choice
+2
+celsius to fahrenheit
+enter temperature in celsius
+0
+32.000000
+1-celsius to fahrenheit
+2-fahrenheit to celsius
+3-exit
+enter choice
