@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+    printf("welcome to guess game\n");
+    int choice=1,secret_num,guess_num=0;
+    srand(time(0));
+    secret_num=rand()%100;
+    while(choice==1&&secret_num!=guess_num){
+        printf("enter the guess number\n");
+        scanf("%d",&guess_num);
+        if(guess_num==secret_num){
+            printf("wow congratulations you won\n");
+            printf("want to play again then click 1\n");
+            scanf("%d",&choice);
+            if(choice!=1){
+                printf("exit\n");
+                break;
+            }
+            else if(choice==1){
+                secret_num=rand()%100;
+            }
+        }
+        else if(guess_num>secret_num){
+            if(guess_num-secret_num<=5)
+            printf("a bit high but almost near\n");
+            else
+            printf("too high\n");
+        }
+        else if(guess_num<secret_num){
+            if(secret_num-guess_num<=5)
+            printf("a bit low but almost near\n");
+            else
+            printf("too low\n");
+        }
+    }
+}
+output
+welcome to guess game
+enter the guess number
+8
+too low
+enter the guess number
+90
+too low
+enter the guess number
+100
+a bit high but almost near
+enter the guess number
+98
+a bit high but almost near
+enter the guess number
+97
+a bit high but almost near
+enter the guess number
+96
+wow congratulations you won
+want to play again then click 1
+1
+enter the guess number
