@@ -1,0 +1,112 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+   cout<<"dice roller\n";
+   cout<<"5-chances are given for both the players\n";
+   string playerone,playertwo;
+   int playeronescore=0,playertwoscore=0,play=1;
+     srand(time(0));
+  
+   while(play==1)
+   {
+          int choice=rand()%3;
+          if(choice==0)
+          choice=1;
+    if(choice==1)
+   cout<<"even score would be considered as winning\n";
+     else if(choice==2)
+   cout<<"odd score would be considered as winning\n";
+
+   
+   cout<<"enter playerone and playertwo names\n";
+   cin>>playerone>>playertwo;
+   for(int i=0;i<5;i++){
+   int diceone=rand()%7;
+    int dicetwo=rand()%7;
+    cout<<playerone<<" "<<diceone<<endl;
+      cout<<playertwo<<" "<<dicetwo<<endl;
+      if(choice==1){
+          if(diceone%2==0)
+          playeronescore++;
+          if(dicetwo%2==0)
+          playertwoscore++;
+          
+      }
+     else if(choice==2){
+          if(diceone%2!=0)
+          playeronescore++;
+          if(dicetwo%2!=0)
+          playertwoscore++;
+          
+      }
+}
+cout<<"scores\n";
+cout<<"-------------------------\n";
+cout<<playerone<<playeronescore<<endl;
+cout<<playertwo<<playertwoscore<<endl;
+if(playeronescore==playertwoscore)
+cout<<"draw\n";
+else if(playeronescore>playertwoscore)
+cout<<"congratulations "<<playerone<<endl;
+else if(playertwoscore>playeronescore)
+cout<<"congratulations "<<playertwo<<endl;
+cout<<"want to play again then click on 1\n";
+cin>>play;
+if(play==0)
+{
+    cout<<"exit\n";
+    break;
+}
+else if(play!=0){
+    playeronescore=0;
+    playertwoscore=0;
+
+}
+}
+    return 0;
+}
+output
+dice roller
+5-chances are given for both the players
+even score would be considered as winning
+enter playerone and playertwo names
+koi
+pllk
+koi 3
+pllk 5
+koi 2
+pllk 1
+koi 3
+pllk 2
+koi 3
+pllk 2
+koi 0
+pllk 1
+scores
+-------------------------
+koi2
+pllk2
+draw
+want to play again then click on 1
+1
+even score would be considered as winning
+enter playerone and playertwo names
+kjj
+lll
+kjj 6
+lll 2
+kjj 0
+lll 0
+kjj 4
+lll 3
+kjj 4
+lll 5
+kjj 4
+lll 5
+scores
+-------------------------
+kjj5
+lll2
+congratulations kjj
+want to play again then click on 1
