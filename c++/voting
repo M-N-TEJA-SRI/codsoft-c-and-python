@@ -1,0 +1,225 @@
+#include <iostream>
+using namespace std;
+int main() {
+    // Write C++ code here
+   int i,choice=1,invalid=0,valid=0,n,c=0,nota=0;
+   cout<<"enter no of participants\n";
+   cin>>n;
+   string names[n],tempu;
+   int votes[n],totvoters,j,temp,k=1;
+   cout<<"enter the participants names\n";
+   for(i=0;i<n;i++){
+       cin>>names[i];
+       votes[i]=0;
+   }
+   cout<<"enter total no of votesrs\n";
+   cin>>totvoters;
+   while(choice!=n+1&&c<totvoters){
+       cout<<"welcome for voting\n";
+       cout<<"The number alloted to the participant and their names are given\n";
+       for(i=0;i<n;i++){
+           cout<<i+1<<"\t"<<names[i]<<endl;
+       }
+       cout<<n+1<<"\t"<<"for exit\n";
+       cout<<n+2<<"\t"<<"for nota\n";
+       cout<<"enter the alloted number of the participant that you want to vote\n";
+        cout<<"If the voting time is over then it is the responsibility of presiding officer to click on the exit button\n";
+       cout<<"enter your choice\n";
+    cin>>choice;
+   
+    if(choice==n+1){
+        cout<<"exit\n";
+        
+        break;
+    }
+    else if(choice>n+2){
+        invalid++;
+        c++;
+    }
+    else if(choice<n+1){
+        c++;
+        votes[choice-1]+=1;
+    }
+    else if(choice==n+2){
+        nota++;
+        c++;
+    }
+   }
+   cout<<"Total voters "<<totvoters<<endl;
+   valid=c-invalid;
+   cout<<"Valid votes "<<valid<<endl;
+   cout<<"Invalid votes "<<invalid<<endl;
+   cout<<"The no of people who did not vote "<<totvoters-c<<endl;
+   cout<<"The no of nota votes are "<<nota<<endl;
+   for(i=0;i<n;i++){
+       for(j=i+1;j<n;j++){
+           if(votes[i]>votes[j]){
+               temp=votes[i];
+               votes[i]=votes[j];
+               votes[j]=temp;
+               tempu=names[i];
+               names[i]=names[j];
+               names[j]=tempu;
+           }
+       }
+   }
+   cout<<"voters voted and counting is done\n";
+   cout<<"participant name\t"<<"no of votes received are given below\n";
+   for(i=0;i<n;i++){
+       cout<<names[i]<<"\t"<<votes[i]<<endl;
+   }
+   if(votes[n-1]!=votes[n-2]){
+   cout<<"The winner is ";
+   cout<<names[n-1]<<" with a majority of "<<votes[n-1]-votes[n-2]<<endl;
+   cout<<"congratulations! serve people and do your duty honestly\n";
+   }
+   else{
+       cout<<"There is a draw in the counting of the votes\n";
+       cout<<"The winners are ";
+       while(votes[n-1]==votes[n-k]&&k>=0)
+       {
+           cout<<names[n-k]<<endl;
+           k++;
+       }
+       cout<<"The votes received by the winners are "<<votes[n-1]<<endl;
+   }
+   return 0;
+}
+         output
+         enter no of participants
+3
+enter the participants names
+teja
+varsha
+kapoor
+enter total no of votesrs
+10
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+1
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+5
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+9
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+2
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+3
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+1
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+2
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+3
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+5
+welcome for voting
+The number alloted to the participant and their names are given
+1	teja
+2	varsha
+3	kapoor
+4	for exit
+5	for nota
+enter the alloted number of the participant that you want to vote
+If the voting time is over then it is the responsibility of presiding officer to click on the exit button
+enter your choice
+4
+exit
+Total voters 10
+Valid votes 8
+Invalid votes 1
+The no of people who did not vote 1
+The no of nota votes are 2
+voters voted and counting is done
+participant name	no of votes received are given below
+teja	2
+varsha	2
+kapoor	2
+There is a draw in the counting of the votes
+The winners are kapoor
+varsha
+teja
+The votes received by the winners are 2
+
+
+=== Code Execution Successful ===
