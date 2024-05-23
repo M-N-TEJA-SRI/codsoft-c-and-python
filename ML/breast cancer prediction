@@ -1,0 +1,29 @@
+import numpy as np
+import pandas as pd
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn import svm
+from sklearn.metrics import accuracy_score
+cancer=datasets.load_breast_cancer()
+x=cancer.data
+y=cancer.target
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+model_svm=svm.SVC(kernel='linear')
+model_svm.fit(x_train,y_train)
+prediction_svm=model_svm.predict(x_test)
+print(accuracy_score(prediction_svm,y_test)*100)
+98.24561403508771
+import numpy as np
+import pandas as pd
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+cancer=datasets.load_breast_cancer()
+x=cancer.data
+y=cancer.target
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,stratify=y,random_state=42)
+model_LR=LogisticRegression()
+model_LR.fit(x_train,y_train)
+prediction_LR=model_LR.predict(x_test)
+print(accuracy_score(prediction_LR,y_test)*100)
