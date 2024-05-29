@@ -1,0 +1,81 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<stdlib.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+   int choice=1,count=0,userscore=0,computer=0,invalid=0,compchoice;
+   string user;
+   srand(time(0));
+   cout<<"welcome to rock paper scissor game\n";
+    cout<<"enter player name\n";
+       cin>>user;
+   while(choice!=4&&count<5&&invalid<2){
+      
+       cout<<"you are given 5 chances to play against the computer\n";
+       cout<<"1-rock\n2-paper\n3-scissors\n4-exit\n";
+       cout<<"atmost 2 invalid choices are accepted\n";
+       cout<<"enter your choice\n";
+       cin>>choice;
+       if(choice<4){
+       compchoice=(rand()%3)+1;
+       cout<<"computer generated choice "<<compchoice<<endl;
+       
+       if(choice==compchoice)
+       {
+           userscore+=0;
+           computer+=0;
+           count++;
+       }
+       else if(choice==1&&compchoice==2||choice==2&&compchoice==3||choice==3&&compchoice==1){
+           computer++;
+           count++;
+       }
+       
+       
+       else if(choice==2&&compchoice==1||choice==3&&compchoice==2||choice==1&&compchoice==3) {
+       userscore++;
+       count++;
+       }
+       cout<<"-------------------------------------------------------------\n";
+       cout<<"CURRENT SCORES\n";
+       cout<<user<<" "<<userscore<<endl;
+       cout<<"computer "<<computer<<endl;
+          cout<<"-------------------------------------------------------------\n";
+       }
+      else if(choice==4)
+       {
+           cout<<"exit\n";
+         
+           break;
+       }
+       else if(choice>4)
+       {
+           cout<<"invalid choice\n";
+           invalid++;
+       }
+       if(invalid>=2)
+       cout<<"too many invalid chances\n";
+       if(count==5){
+           cout<<"The invalid attempts are "<<invalid<<endl;
+           cout<<"chances are over\n";
+           if(userscore>computer){
+               cout<<"The winner is "<<user<<" with a score of "<<userscore<<endl;
+           }
+           else if(userscore==computer){
+               cout<<"It's a draw "<<"with a score of "<<userscore<<endl;
+           }
+           else{
+           cout<<"computer is the winner "<<"with a score of "<<computer<<endl;}
+           cout<<"Want to exit? then press 4\n";
+           cin>>choice;
+           if(choice!=4){
+               userscore=0;
+               computer=0;
+               count=0;
+           }
+       }
+   }
+
+    return 0;
+}
