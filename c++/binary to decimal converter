@@ -1,0 +1,60 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+int main() {
+    // Write C++ code here
+    string s;
+    long long int sum=0,i,c=0,choice=1,flag=1;
+    while(choice!=0){
+        cout<<"binary to decimal converter\n";
+       cout<<"Press 0 for exit\n";
+         cout<<"Press 1 for conversions\n";
+         cout<<"enter your choice\n";
+         cin>>choice;
+         if(choice==0){
+             cout<<"exit\n";
+             return 0;
+         }
+    cout<<"enter the binary string\n";
+    cin>>s;
+    for(i=s.length()-1;i>=0;i--){
+        if(s[i]=='1')
+        {
+            sum+=pow(2,c);
+        }
+        else if(s[i]=='0'){
+       continue;}
+        else{
+            flag=0;
+            break;
+        }
+        c++;
+    }
+    if(flag==0){
+    cout<<"Invalid string \n";
+    cout<<"Binary string should contain 0 and 1 only\n";}
+    else if(flag==1){
+    cout<<"given binary string is "<<s<<endl;
+cout<<"decimal conversion is "<<sum<<endl;
+c=0;
+sum=0;
+flag=1;
+cout<<"---------------------------------------------------------------------\n";
+}
+}
+    return 0;
+}
+output
+binary to decimal converter
+Press 0 for exit
+Press 1 for conversions
+enter your choice
+1
+enter the binary string
+10101
+given binary string is 10101
+decimal conversion is 21
+binary to decimal converter
+Press 0 for exit
+Press 1 for conversions
+enter your choice
